@@ -3,6 +3,7 @@ nm=[]
 pr=[]
 opr=[]
 qu=[]
+# *******************
 def addpro():
     name=input("Enter Name of the Product:")
     if(name in nm):
@@ -18,21 +19,26 @@ def addpro():
         os.system('cls')
 def editpro():
     i=int(input("Ener Index of the product:"))
-    w=int(input("What you want to edit:\n1. Name\n2. Price\n3. Quantity\n4. All\n-->"))
-    if(w==1):
-        nm[i]=input("Enter New Name:")
-    elif(w==2):
-        opr[i]=int(input("Enter New Price:"))
-        pr[i]=opr[i]*qu[i]
-    elif(w==3):
-        qu[i]=int(input("Enter New Quantity:"))
-    elif(w==4):
-        nm[i]=input("Enter New Name:")
-        opr[i]=int(input("Enter New Price:"))
-        pr[i]=opr[i]*qu[i]
-        qu[i]=int(input("Enter New Quantity:"))
-    os.system('cls')
-    print("Changes were Successful!\n")
+    if(len(nm)>i and i>-1):
+        w=int(input("What you want to edit:\n1. Name\n2. Price\n3. Quantity\n4. All\n-->"))
+        if(w==1):
+            nm[i]=input("Enter New Name:")
+        elif(w==2):
+            opr[i]=int(input("Enter New Price:"))
+            pr[i]=opr[i]*qu[i]
+        elif(w==3):
+            qu[i]=int(input("Enter New Quantity:"))
+            pr[i]=opr[i]*qu[i]
+        elif(w==4):
+            nm[i]=input("Enter New Name:")
+            opr[i]=int(input("Enter New Price:"))
+            qu[i]=int(input("Enter New Quantity:"))
+            pr[i]=opr[i]*qu[i]
+        os.system('cls')
+        print("Changes were Successful!\n")
+    else:
+        os.system('cls')
+        print("Invalid Index Number!\n")
 def deletepro():
     i=int(input("Enter Index of the Product:"))
     nm.pop(i)
